@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}<title>Home</title>{% endblock %}
+{% block content %}
+
+    <!-- PAGE TITLE
+    ================================================== -->
+    <header class="py-8 py-md-11 bg-light">
+        {% for i in main_post %}
+        <div class="container text-center py-xl-2">
+            <h1 class="display-4 fw-semi-bold mb-0">{{i.title |truncatewords:5|safe}}</h1>
+        </div>
+        <!-- Img -->
+        <div class="mb-8 sk-thumbnail img-ratio-7">
+            <img src="{{i.image.url}}" alt="..." class="img-fluid">
+        </div>
+        {% endfor %}
+    </header>
+
+
+    <!-- BLOG LIST V1
+    ================================================== -->
+    <div class="container mb-11 mt-5">
+        <div class="row">
+            <div class="col-md-7 col-lg-8 col-xl-9 mb-5 mb-md-0">
+                {% include "includes/list.html" %}
+               
+              
+            </div>
+            <div class="col-md-5 col-lg-4 col-xl-3">
+               <!-- BLOG SIDEBAR
+                ================================================== -->
+                
+               {% include "includes/sidebar.html" %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
